@@ -1,32 +1,19 @@
-# Chapter 2
+# Big Oh Notation
 
-| Data Structure | Arrays | Sets    | Ordered Arrays |
-|----------------|--------|---------|----------------|
-| Reading        | O(1)   | O(1)    | O(1)           |
-| Searching      | O(n)   | O(n)    | O(log n)       |
-| Insertion      | O(n+1) | O(2n+1) | O(n+log n)     |
-| Deletion       | O(n)   | O(n)    | O(n)           |
+## Big O: How Many Steps Relative to N Elements?
+- O(N) Some pronounce this as “Big Oh of N.” Others call it “Order of N.” My personal preference, however, is “Oh of N.”. It expresses the answer to what we’ll call the “key question.” The key question is: *_if there are N data elements, how many steps will the algorithm take?_*. an algorithm that is O(N) is also known as having linear time.
+- O(1) is considered the “fastest” kind of algorithm. Even as the data increases, an O(1) algorithm doesn’t take any additional steps. The algorithm always takes a constant number of steps no matter what N is. In fact, O(1) algorithm can also be referred to as having constant time.
+- O(log N) This type of algorithm is also known as having a time complexity of log time. O(log N) is the Big O way of describing an algorithm that increases one step each time the data is doubled.
 
-## Why Algorithms Matter
-- An algorithm is simply a set of instructions for completing a specific task.
+### The Soul of Big O
+- The soul of Big O is what Big O is truly concerned about: how will an algorithm’s performance change as the data increases?
+- Big O doesn’t want to simply tell you how many steps an algorithm takes. It wants to tell you the story of how the number of steps increase as the data changes.
+- Because there will always be some amount of data at which the tides turn, and O(N) takes more steps from that point until infinity, O(N) is considered to be, on the whole, less efficient than O(1) no matter how many steps the O(1) algorithm actually takes.
+- Big O Notation generally refers to the worst-case scenario unless specified otherwise. This is why most references will describe linear search as being O(N) even though it can be O(1) in a best-case scenario.
+- binary search as having a time complexity of O(log N)
 
-### Ordered Arrays
-- The ordered array is almost identical to the “classic” array we saw in the previous chapter. The only difference is that ordered arrays require that the values are always kept—you guessed it—in order. That is, every time a value is added, it gets placed in the proper cell so that the values in the array remain sorted.
-- In terms of N, we’d say that for N elements in an ordered array, the insertion took N + 2 steps in total.
-- Interestingly, the number of steps for insertion remains similar no matter where in the ordered array our new value ends up.
-- The fewest steps occur when the new value winds up at the very end, since no shifts are necessary. In this case, we take N steps to compare the new value with all N existing values, plus one step for the insertion itself, yielding a total of N + 1 steps.
+## Complexity Chart  
+![Big Oh Complexity Chart](./complexity_chart.jpeg)
 
-#### Searching an Ordered Array
-- At first glance, then, standard arrays and ordered arrays don’t have tremendous differences in efficiency, or at least not in worst-case scenarios. For both kinds of arrays, if they contain N elements, linear search can take up to N steps.
-- But we’re about to unleash an algorithm that is so powerful that it will leave linear search in the dust.
-- The big advantage of an ordered array over a classic array is that an ordered array allows for an alternative searching algorithm. This algorithm is known as binary search, and it is a much, much faster algorithm than linear search.
-
-##### Binary Search
-- Note that binary search is only possible within an ordered array.
-
-##### Binary search vs. Linear Search
-- each time we double the size of the ordered array, the number of steps needed for binary search increases by one. This makes sense, as each lookup eliminates half of the elements from the search.
-- This pattern is unusually efficient: each time we double the data, the binary search algorithm adds just one more step.
-  ![](bs_vs_ls.jpg)
-
-- for linear search, each time we double the size of the array, we double the number of steps of our search. For binary search, though, each time we double the size of the array, we only need to add one more step.
+## Additional Sources
+- [FreeCodeCamp](https://www.freecodecamp.org/news/big-o-notation-why-it-matters-and-why-it-doesnt-1674cfa8a23c/)
